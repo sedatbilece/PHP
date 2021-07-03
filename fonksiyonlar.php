@@ -28,6 +28,16 @@ echo "</br>";
 
 echo topla(5,30);
 
+echo "</br>";
+
+
+$yaz=get_defined_functions();
+
+echo "<pre>";
+print_r($yaz);
+
+echo "<pre>";
+
 ?>
 
 
