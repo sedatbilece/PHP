@@ -7,25 +7,14 @@
     <title>Document</title>
 </head>
 <body>
-<?php
-
-
-$userid=150;
-
-echo $userid;
-?>
-
-
-
-
+    
 <form action="islem.php" method="POST">
 
-<input type="text" name="Ad" placeholder="ADINIZI GİRİNİZ">
-<p></p>
-<input type="text" name="Soyad" placeholder="SOYADINIZI GİRİNİZ">
+ad :    <input type="text" name="Ad" id=""> <br>
+sifre: <input type="password" name="Sifre" id=""><br>
+      beni hatırla : <input type="checkbox" name="Hatirla" id=""> <br>
 
-<p></p>
-<input type="submit" value="Gönder">
+<input type="submit" value="GÖNDER">
 
 </form>
 
@@ -33,5 +22,7 @@ echo $userid;
 
 
 
+
+   
 </body>
 </html>
