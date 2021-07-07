@@ -52,13 +52,20 @@
 <script>
 function fgönder(){
 
-
-    Swal.fire({
-  icon: 'error',
-  title: 'Oops...',
-  text: 'Something went wrong!',
-  footer: '<a href="">Why do I have this issue?</a>'
-});
+  Swal.fire({
+  title: 'değiştirilsin mi?',
+  showDenyButton: true,
+  showCancelButton: true,
+  confirmButtonText: `asd`,
+  denyButtonText: `Don't asd`,
+}).then((result) => {
+  /* Read more about isConfirmed, isDenied below */
+  if (result.isConfirmed) {
+    Swal.fire('Saved!', '', 'success')
+  } else if (result.isDenied) {
+    Swal.fire('Changes are not saved', '', 'error')
+  }
+})
 
 
 }
