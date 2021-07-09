@@ -7,14 +7,16 @@ try{
     $password="12345678";
 
 
-
+# temel bağlantı işlemi
 $db=new PDO($url,$name,$password);
 
 echo "veritabanına bağlandı";
 }
+
 catch(PDOException $e){
 
-echo $e->getMessage();
+
+echo $e->getMessage();# hata mesajını döndürür
 
 }
 
