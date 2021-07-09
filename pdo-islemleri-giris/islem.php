@@ -13,6 +13,7 @@ echo "<p> $sifre </p>";
 if(isset($_POST["girisform"])){
 
     
+    
 echo "<p>isset forma girildi </p>";
 
 
