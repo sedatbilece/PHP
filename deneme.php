@@ -12,8 +12,7 @@
     <?php 
     echo "deneme";
     
-    echo "deneme2";
-    echo "deneme3";
+ 
     ?>
 </body>
 </html>
