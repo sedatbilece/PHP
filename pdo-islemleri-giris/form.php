@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" >
     <style> 
 
 .error{
@@ -14,6 +14,11 @@
     width: 100px;
     margin-top: 10px;
 }
+.table{
+    width: 70%;
+    
+}
+
 </style>
 </head>
 <body>
@@ -73,23 +78,44 @@ print_r($bilgicek);
 
 */
 
+?>
+
+<table class="table table-striped">
+
+<tr>
+    <th>id</th>
+    <th>name</th>
+    <th>password</th>
+    <th>islemler</th>
+    <th>islemler</th>
+</tr>
+
+
+<?php 
+
 $name_pass_sor = $db->prepare ("SELECT *from name_pass");# YAPILACAK İSLEM
 
 $name_pass_sor-> execute(); # İSLEMİN ÇALIŞTIRILMASI
 
 
-while(  $bilgicek= $name_pass_sor->fetch(PDO::FETCH_ASSOC)  ) {
+while(  $bilgicek= $name_pass_sor->fetch(PDO::FETCH_ASSOC)  ) { ?>
 
-      echo   $bilgicek["id"];   echo "       ";
-      echo   $bilgicek["name"]; echo "       "; 
-      echo   $bilgicek["pass"]; echo "       ";
-      echo "<br>";
+     <tr>
+     <td> <?php  echo $bilgicek["id"]   ?> </td>
+     <td> <?php  echo $bilgicek["name"]   ?> </td>
+     <td> <?php  echo $bilgicek["pass"]   ?> </td>
+     <td><a href="sil.php?id=<?php echo $bilgicek["id"]; ?>"> <button class="btn btn-outline-danger" >Sil</button></a></td>
+     <td> <a href="duzenle.php?id=<?php echo $bilgicek["id"]; ?>"><button class="btn btn-outline-primary">Düzenle</button></a></td>
+     
+    
+     </tr>
+      
 
-}
+   <?php }  ?>
+ 
 
 
-?>
-
+</table>
 
 
 
