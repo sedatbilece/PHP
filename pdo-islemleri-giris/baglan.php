@@ -10,7 +10,6 @@ try{
 # temel bağlantı işlemi
 $db=new PDO($url,$name,$password);
 
-echo "veritabanına bağlandı";
 }
 
 catch(PDOException $e){

@@ -10,8 +10,7 @@ require_once "baglan.php";
 $ad=$_POST["Ad"];
 $sifre=$_POST["Sifre"];
 
-echo "<p> $ad </p>";
-echo "<p> $sifre </p>";
+
 
 
 
@@ -20,7 +19,7 @@ if(isset($_POST["girisform"])){
 
     
 
-echo "<p>isset forma girildi </p>";
+
 
 # burada islem için sutun adları verildi a ve b bunları y-temsil ediyor 
 $kaydet = $db->prepare("INSERT into name_pass set 
@@ -42,11 +41,22 @@ $insert = $kaydet ->execute(array(# kayıt başarılı ise insert 1 değilse nul
 
 if($insert){#insert boşmu ( kayıt varmı ) kontrolü
 
-    echo "<p> +++++ kayıt başarılı +++++</p>";
+   // echo "<p> +++++ kayıt başarılı +++++</p>";
 
+
+      Header("location:form.php?durum=ok");   #istenilen sayfaya yönlendirme yapar
+# form isminden sonra ? ile değişken = durum şeklinde get methodu ile formda yakalanabilir 
+# gönderme başarılı veya başarısız yazar
+
+
+
+      
 }
 else{
-    echo "<p> xxxxx kayıt başarısız  xxxxxx </p>";
+   // echo "<p> xxxxx kayıt başarısız  xxxxxx </p>";
+
+
+   Header("location:form.php?durum=no"); 
 }
 
 
