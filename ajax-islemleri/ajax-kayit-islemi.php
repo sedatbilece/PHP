@@ -67,8 +67,11 @@ function kaydet(){
                success:function(cevap){
 
 
-                alert(cevap);
-               }
+                alert("success --- "+cevap);
+               },
+               error: function (errorMessage) {
+            alert("error --- "+errorMessage);
+    }
 
           });
 
