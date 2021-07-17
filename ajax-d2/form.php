@@ -9,11 +9,11 @@
 <body>
     
 
-<form action="javascript:void(0)"  class="kayitformu" method="POST">
+<form action=""  class="mesajform" method="POST" id="mesajform">
 
                    <input type="text" value="konu"  id="konu" name="konu" >
                    <textarea name="textmesaj" id="mesaj" cols="30" rows="10" ></textarea>
-                   <button type="submit" name="mesajbut" onclick="Save()" >gönder</button>
+                   <button type="submit" name="mesajbut" >gönder</button>
     
 
 </form>
@@ -21,33 +21,43 @@
 
 
 <script src="jquery-3.6.0.min.js"></script>
-<script>
 
 
 
-function Save() {
-    BlockModal();
+<script type="text/javascript">
 
-    var tümbilgiler = $(".kayitformu").serialize();// tüm bilgiler gelir
 
-    
+$(document).ready(function(){
 
-  
 
-    $.ajax({
-        type: 'post',
-        url: 'islem.php',
-        
-        data: tümbilgiler,
-        success: function (result) {
-           alert("başarılı");
-            
-        },
-        error: function (err) {
-            alert("başarısız");
-        }
-    });
-}
+     $("#mesajform").submit(){
+
+          var bilgiler= $(".mesajform").serialize();
+
+
+
+           $.ajax({
+              type:"POST",
+              url:"islem.php",
+              data:bilgiler,
+              success: function(data){
+                  veri=JSON.parse(data);
+                  alert(veri.message+"  "+veri.status);
+              },
+              error: function(data){
+                  veri=JSON.parse(data);
+                  alert(veri.message+"  "+veri.status);
+              }
+
+
+
+           });
+
+           return false;
+     };
+
+});
+
 </script>
 
 
