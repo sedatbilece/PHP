@@ -9,54 +9,47 @@
 <body>
     
 
-<form action=""  class="mesajform" method="POST" id="mesajform">
+<form action="javascript:void(0)"  class="mesajform" method="POST" id="mesajform">
 
-                   <input type="text" value="konu"  id="konu" name="konu" >
-                   <textarea name="textmesaj" id="mesaj" cols="30" rows="10" ></textarea>
-                   <button type="submit" name="mesajbut" >gönder</button>
+                   <input type="text"   id="konu" name="konu" placeholder="konu">
+                   <textarea  name="mesaj" id="mesaj" cols="30" rows="10" placeholder="mesajınız">   </textarea>
+
+                   <input type="hidden" name="islem" value="kayit">
+                   <button type="submit" name="mesajbut" onclick="save();">gönder</button>
     
 
 </form>
 
 
 
-<script src="jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 
 
 <script type="text/javascript">
 
+function save(){
 
-$(document).ready(function(){
-
-
-     $("#mesajform").submit(){
-
-          var bilgiler= $(".mesajform").serialize();
+var bilgiler= $(".mesajform").serialize();
 
 
+$.ajax({
+type:"POST",
 
-           $.ajax({
-              type:"POST",
-              url:"islem.php",
-              data:bilgiler,
-              success: function(data){
-                  veri=JSON.parse(data);
-                  alert(veri.message+"  "+veri.status);
-              },
-              error: function(data){
-                  veri=JSON.parse(data);
-                  alert(veri.message+"  "+veri.status);
-              }
+url:"islem.php",
 
+data:bilgiler,
 
+success:function(cevap){
+    alert(cevap);
+}
 
-           });
-
-           return false;
-     };
 
 });
+
+
+
+}
 
 </script>
 
