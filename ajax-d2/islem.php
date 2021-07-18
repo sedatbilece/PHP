@@ -31,9 +31,9 @@ echo $e->getMessage();# hata mesajını döndürür
      
 
   # burada islem için sutun adları verildi a ve b bunları y-temsil ediyor 
-  $kaydet = $db->prepare("INSERT into name_pass set  name=:a , pass=:b ");
+  $kaydet = $db->prepare("INSERT into mesajlar set  mesajlar_konu=:a , mesajlar_mesaj=:b , mesajlar_zaman=:c");
     
-  
+  $date=strftime('%e %B %Y %A %H:%M:%S');
   
   #burada ise sütunlara istenen değerler atandı
   
@@ -41,7 +41,7 @@ echo $e->getMessage();# hata mesajını döndürür
   
       "a"=> $_POST["konu"],
       "b"=> $_POST["mesaj"],
-      
+      "c"=>$date
   ));
 
 
