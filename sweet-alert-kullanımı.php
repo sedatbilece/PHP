@@ -49,7 +49,56 @@
     
     </table>
   </div>
+
+  <input type="submit" name="" id="" class="btn btn-primary" onclick="fgönder2()" value="tek satırlık">
+<br> <br>
+
+
+<input type="submit" name="" id="" class="btn btn-primary" onclick="fgönder3()" value="sag ust onay">
+<br> <br>
+
+<input type="submit" name="" id="" class="btn btn-primary" onclick="fgönder4()" value="resimli">
+<br> <br>
+
+
+<input type="submit" name="" id="" class="btn btn-primary" onclick="fgönder5()" value="normal alert">
+<br> <br>
+
 <script>
+
+function fgönder5(){
+
+alert("normal alert")
+
+}
+
+
+function fgönder4(){
+
+  Swal.fire({
+  title: 'Sweet!',
+  text: 'Modal with a custom image.',
+  imageUrl: 'https://unsplash.it/400/200',
+  imageWidth: 400,
+  imageHeight: 200,
+  imageAlt: 'Custom image',
+})
+}
+
+
+function fgönder3(){
+  Swal.fire({
+  position: 'top-right',
+  icon: 'success',
+  title: 'Your work has been saved',
+  showConfirmButton: false,
+  timer: 1500
+})
+}
+
+function fgönder2(){
+  Swal.fire('tek satırlık mesaj')
+}
 function fgönder(){
 
   Swal.fire({
