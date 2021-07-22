@@ -23,17 +23,17 @@
 
 
 
-<form action="javascript:void(0)" method="post" class="mesajform">
+<form action="javascript:void(0)" method="post" class="mesajform" name="mesajform">
 
 
-<input type="text" name="isim" placeholder="isim gir" class="aralik">
+<input type="text" name="isim" placeholder="isim gir" class="aralik" required>
 <br>
-<input type="email" name="eposta" placeholder="eposta gir" class="aralik">
+<input type="email" name="eposta" placeholder="eposta gir" class="aralik" required>
 <br>
-<input type="password" name="sifre" placeholder="sifre gir" class="aralik">
+<input type="password" name="sifre" placeholder="sifre gir" class="aralik" required>
 <br>
 <input type="hidden" name="islem" value="kayit">
-<input type="submit" value="Kayıt" class="aralik" name="kayitbutonu" onclick="save();">
+<input type="submit" value="Kayıt" class="aralik" name="kayitbutonu" onclick="save();" id="kayitbutonu">
 
 </form>
 
@@ -72,12 +72,16 @@ Lütfen kontrol ederek hesabınızı onaylayınız
 
 <script type="text/javascript">
 
-function save(){
 
+function save(){
+    
 var bilgiler= $(".mesajform").serialize();
 
 
-$.ajax({
+
+
+        document.getElementById("kayitbutonu").disabled = true; 
+    $.ajax({
 type:"POST",
 
 url:"islem.php",
@@ -85,16 +89,27 @@ url:"islem.php",
 data:bilgiler,
 
 success:function(cevap){   
-    alert("işlem başarılı ");
+    alert(cevap);
 
 },
-error:function(cvp){
-    alert("işlem başarısız");
+error:function(cevap){
+    alert(cevap);
 }
 
 
 
 });
+
+
+
+      
+
+
+  
+
+
+
+
 
 
 

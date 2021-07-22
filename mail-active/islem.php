@@ -57,10 +57,10 @@ if($postkont=="kayit"){
         $mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
     
         //Recipients
-        $mail->setFrom($eposta, 'Sedat Bilece Site');
+        $mail->setFrom($epostabil, 'Sedat Bilece Site');
         
-        $mail->addAddress("sedatb767@gmail.com");               //Name is optional
-        
+        $mail->addAddress($eposta);               //Name is optional
+        $mail->SMTPDebug = 0;
         
     
         //Content
@@ -72,7 +72,7 @@ if($postkont=="kayit"){
     
         $mail->send();
         
-       echo "kayıt işlemi başarılı";
+       echo "kayıt işlemi başarılı epostanızı kontrol ediniz";
     } catch (Exception $e) {
       echo "kayıt işlemi tamamlanamadı";
     }
