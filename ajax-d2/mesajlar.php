@@ -81,7 +81,7 @@ Swal.fire('Soru Silindi');
 
     <div class="card bosbirak">
   <div class="card-header">
-  <?php  echo $mescek["mesajlar_konu"] ?> | <?php echo $mescek["mesajlar_zaman"] ?> | 
+  Konu: <?php  echo $mescek["mesajlar_konu"] ?>  |    Tarih : <?php echo $mescek["mesajlar_zaman"] ?>  
   <a href="islem.php?id=<?php echo $mescek["mesajlar_id"]  ?>&Sorusil=ok" class="btn btn-danger yasla">Sil</a>
   </div>
   <div class="card-body">
