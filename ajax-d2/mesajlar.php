@@ -36,18 +36,41 @@ $mesajsor->execute();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" >
+    <link rel="stylesheet" href="sweetalert2.min.css">
 <style>
 
     .ortala{
         width: 50%;
         margin-left: 25%;
     }
+    .bosbirak{
+        margin-top: 5%;
+    }
+    .yasla{
+        float:right;
+    }
 </style>
 
 </head>
 <body>
     
+<?php 
+
+if($_GET["silme"]=="ok"){?>
+
+
+<script>
+Swal.fire('Soru Silindi');
+  
+</script>
+
+
+<?php
+}
+?>
+
+
 
 
 <div class="ortala">
@@ -56,18 +79,24 @@ $mesajsor->execute();
 
 
 
-Konu: <?php  echo $mescek["mesajlar_konu"] ?> || <?php echo $mescek["mesajlar_zaman"] ?>
-<br>
-<?php echo  $mescek["mesajlar_mesaj"] ?>
-<hr>
-
+    <div class="card bosbirak">
+  <div class="card-header">
+  <?php  echo $mescek["mesajlar_konu"] ?> | <?php echo $mescek["mesajlar_zaman"] ?> | 
+  <a href="islem.php?id=<?php echo $mescek["mesajlar_id"]  ?>&Sorusil=ok" class="btn btn-danger yasla">Sil</a>
+  </div>
+  <div class="card-body">
+   
+    <p class="card-text"><?php echo  $mescek["mesajlar_mesaj"] ?></p>
+    
+  </div>
+</div>
 
 
 
     <?php } ?>
 </div>
 
-
-
+<script src="sweetalert2.all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" ></script>
 </body>
 </html>
