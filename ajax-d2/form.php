@@ -27,19 +27,19 @@
 
 <tr>
     <td>
-    <label for="konu">Konu</label>
+    <label for="konu" class="input-group-text">Konu</label>
     </td>
     <td>
-    <input type="text"   id="konu" name="konu" class="form-text text-muted">
+    <input type="text"   id="konu" name="konu" class="form-control">
     </td>
 </tr>
 
 <tr>
     <td>
-    <label for="mesaj" class="input-group-text">Sorunuz?</label>
+    <label for="mesaj" class="input-group-text">Sorunuz? *</label>
     </td>
     <td>
-    <textarea  name="mesaj" id="mesaj" cols="30" rows="10" class="form-control" >   </textarea>
+    <textarea  name="mesaj" id="mesaj" cols="30" rows="10" class="form-control" required="required"></textarea>
     </td>
 </tr>
 
@@ -75,9 +75,13 @@
 
 
 
+
 <script type="text/javascript">
 
 function save(){
+
+
+  
 
 var bilgiler= $(".mesajform").serialize();
 

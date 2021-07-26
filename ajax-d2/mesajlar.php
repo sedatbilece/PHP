@@ -38,19 +38,8 @@ $mesajsor->execute();
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" >
     <link rel="stylesheet" href="sweetalert2.min.css">
-<style>
 
-    .ortala{
-        width: 50%;
-        margin-left: 25%;
-    }
-    .bosbirak{
-        margin-top: 5%;
-    }
-    .yasla{
-        float:right;
-    }
-</style>
+    <link rel="stylesheet" href="sorusor.css">
 
 </head>
 <body>

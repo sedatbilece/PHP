@@ -11,11 +11,15 @@
 
     <?php 
     # eğer hata alınırsa  bunu yap
-    #date_default_timezone_set("Europe");
-
-    echo date("d-m-y h:i:s");# 29-06-21 03:20:18
+    date_default_timezone_set("Europe");
     
-    echo" <p>----------------------------</p>";
+# h:i:s
+    $tarih =date("d-m-y H:i");
+    
+ 
+   
+echo "<br>------</br>";
+
 
 
     
