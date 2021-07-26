@@ -1,6 +1,8 @@
 <?php 
 
-$postkont=$_POST["islem"];
+$postkont=$_POST["islem"];// hangi formun gönderildiği veya form gönderildimi post işlemi düzgün 
+#gerçekleşmez ise null döner.
+
 
 
 
@@ -52,6 +54,35 @@ echo $e->getMessage();# hata mesajını döndürür
   }
 
 
+
+
+    }
+    if($_GET["Sorusil"]=="ok"){
+
+    
+      $kaydet = $db->prepare("DELETE from mesajlar WHERE mesajlar_id=:a");
+     
+      
+     
+      
+      $insert = $kaydet ->execute(array(
+      
+          "a"=> $_GET["id"]
+          
+      ));
+
+
+if($insert!=null){
+header("Location:mesajlar.php?silme=ok");
+
+}
+else{
+  header("Location:mesajlar.php?silme=no");
+
+}
+
+
+      
 
 
     }
