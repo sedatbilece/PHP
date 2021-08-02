@@ -1,18 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
+<?php 
 
 
-<?php   
+$kime="sedatb767@gmail.com";
+$konu="sifremi unuttum";
 
-echo "<h1>deneme hello</h1>";
+
+/* ini_set("SMTP","ssl://smtp.gmail.com");
+ini_set("smtp_port","465");  */
+
+// İleti
+$ileti = "Line 1\r\nLine 2\r\nLine 3";
+
+// Satırlarımızın 70 karakterden uzun olanlarını katlamamız lazım
+$ileti = wordwrap($ileti, 70, "\r\n");
+
+// Epostayı gönderelim
+mail($kime, $konu, $ileti);
+
 ?>
-</body>
-</html>
