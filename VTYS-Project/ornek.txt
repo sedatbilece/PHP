@@ -1,0 +1,37 @@
+<?php 
+
+try{
+    echo "try";
+    $url="mysql:host=localhost;dbname=vtysproje;charset=utf8";
+    $name="root";
+    $password="12345678";
+  
+  
+  # temel bağlantı işlemi
+  $db=new PDO($url,$name,$password);
+  
+  }
+  
+  catch(PDOException $e){
+  echo "hata";
+  
+  echo $e->getMessage();# hata mesajını döndürür
+  }
+
+echo "ana menü";
+  $dene=$db->prepare("SELECT * FROM deneme ");
+
+  $dene->execute(array(
+   
+
+));
+
+  while($ders= $dene->fetch(PDO::FETCH_ASSOC) ) { ?>
+
+<?php  echo $ders["ad"] ?>
+
+<hr>
+     
+
+
+<?php } ?>
