@@ -37,4 +37,10 @@ echo "ana menü";
 <?php } ?>
 
 
+------------------------------------------
 
+<select name="" id="">
+<option >Aktif/Pasif Listesi</option>
+  <option value="Bolum.php?list=aktif">Aktif bölümleri getir</option>
+  <option value="Bolum.php?list=pasif" >Pasif bölümleri getir</option>
+</select>

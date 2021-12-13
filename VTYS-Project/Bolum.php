@@ -1,3 +1,32 @@
+<?php 
+include "./Functions/baglan.php";
+
+if(isset($_GET["ekleme1"])){
+  ?>
+<script>
+  alert("Bölüm eklendi");
+</script>
+<?php
+} ?>
+
+
+<?php if(isset($_GET["ekleme0"])){
+  ?>
+<script>
+  alert("Bölüm ekleme başarısız");
+</script>
+<?php
+} ?>
+
+<?php if(isset($_GET["silme1"])){
+  ?>
+<script>
+  alert("Bölüm pasif hale getirildi");
+</script>
+<?php
+} ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -94,14 +123,32 @@ body {
     z-index: 10;
     background: #F7F5F5;
   }
+
+  #customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
 </style>
 </head>
 <body>
 
 <div class="sidenav right">
-  <div class="nav active"><div class="icon fa fa-home"></div><div class="description">Anasayfa</div></div>
-  <div class="nav"><div class="icon fa fa-database"></div><div class="description">About</div></div>
-  <div class="nav "><div class="icon fa fa-users"></div><div class="description">Clients</div></div>
+<div class="nav "><div class="icon fa fa-home"></div><div class="description"><a href="./index.php">Anasayfa</a></div></div>
+  <div class="nav active"><div class="icon fa fa-database"></div><div class="description"><a href="./Bolum.php">Bolumler</a></div></div>
+  <div class="nav "><div class="icon fa fa-users"></div><div class="description"><a href="./Roller.php">Roller</a></div></div>
+</div>
 </div>
 
 <div class="content">
@@ -128,9 +175,51 @@ body {
 </form>
 <hr>
 
+<button type="submit"><a href="Bolum.php?list=aktif"> aktif</a></button>
+<button type="submit"><a href="Bolum.php?list=pasif"> pasif</a></button>
 
-<table>
 
+<?php 
+$query="Select *from bolum";
+if($_GET["list"]=="aktif"){
+  $query="SELECT * FROM bolum where Aktiflik=1";
+}
+if($_GET["list"]=="pasif"){
+  $query="SELECT * FROM bolum where Aktiflik=0";
+}
+
+
+
+?>
+
+
+<table id="customers">
+  <tr>
+  <td>Bolum adı</td>
+  <td>Aktiflik</td>
+  <td>Sil</td>
+</tr>
+
+  <?php 
+   $getir=$db->prepare($query);
+   $getir->execute(array(
+));
+
+while($bolum= $getir->fetch(PDO::FETCH_ASSOC) ){ ?>
+
+<tr>
+  <td><?php echo $bolum["BolumAdı"] ?></td>
+  <td><?php echo $bolum["Aktiflik"] ?></td>
+  <td><button type="submit"><a href="./Functions/BolumSil.php?id=<?php echo $bolum["BolumID"] ?>">Sil</a></button></td>
+</tr>
+
+
+
+ <?php
+} ?>
+
+
+  
 
 </table>
 
