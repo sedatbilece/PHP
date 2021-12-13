@@ -99,13 +99,41 @@ body {
 <body>
 
 <div class="sidenav right">
-  <div class="nav active"><div class="icon fa fa-home"></div><div class="description"><a href="./index.php">Anasayfa</a></div></div>
-  <div class="nav"><div class="icon fa fa-database"></div><div class="description"><a href="./Bolum.php">Bolumler</a></div></div>
-  <div class="nav "><div class="icon fa fa-users"></div><div class="description"><a href="./Roller.php">Roller</a></div></div>
+  <div class="nav active"><div class="icon fa fa-home"></div><div class="description">Anasayfa</div></div>
+  <div class="nav"><div class="icon fa fa-database"></div><div class="description">About</div></div>
+  <div class="nav "><div class="icon fa fa-users"></div><div class="description">Clients</div></div>
 </div>
 
 <div class="content">
   
+<h3>Bölüm ekle</h3>
+<form action="Functions/BolumEkle.php" method="post">
+
+        <table>
+
+        <td>
+          <tr>
+            Bölüm adı
+          </tr>
+          <tr> <input type="text" name="BolumAdı" id=""></tr>
+</td>
+
+
+        <td>
+           <button type="submit">Ekle</button>
+        </td>
+        </table>
+
+
+</form>
+<hr>
+
+
+<table>
+
+
+</table>
+
 
 </div>
 
