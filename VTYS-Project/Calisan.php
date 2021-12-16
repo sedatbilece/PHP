@@ -136,6 +136,7 @@ body {
       margin-top: 40px;
   }
   table, th, td {
+    padding: 10px;
   border: 1px solid black;
 }
 table {
@@ -143,6 +144,39 @@ table {
   border-collapse: collapse;
 }
   
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 6px 0px rgba(0,0,0,0.2);
+  padding: 6px 8px;
+  z-index: 1;
+  margin-top: 10px;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.droop{
+  background-color: yellow;
+  padding: 10px;
+  margin-top: 20px;
+  border-radius: 10%;
+}
+
+.infomassage{
+  display: inline-block;
+  padding: 20px;
+  border-radius: 15px;
+  background-color: #5BF983;
+}
 </style>
 </head>
 <body>
@@ -209,7 +243,43 @@ while($kayit= $getir->fetch(PDO::FETCH_ASSOC) ){ ?>
 </form>
 
 <hr>
+<br>
+<div class="dropdown">
+  <span class="droop">Görüntüleme filtresi seç</span>
+  <div class="dropdown-content">
+    <a href="Calisan.php?filtre=eski">eski çalışanları getir</a>
+    <a href="Calisan.php?filtre=yeni-eski">çalışan yeniden eskiye</a>
+    <a href="Calisan.php?filtre=eski-yeni">çalışan eskiden yeniye</a>
+    
+  </div>
+</div>
 
+<?php 
+$querydesc="";
+if($_GET["filtre"]=="eski"){
+
+  $querydesc="Eski çalışanlar getirildi";
+
+}
+else if($_GET["filtre"]=="eski-yeni"){
+
+  $querydesc="Çalışanlar eskiden yeniye sıralı şekilde getirildi";
+}
+else if($_GET["filtre"]=="yeni-eski"){
+
+  $querydesc="Çalışanlar  yeniden eskiye sıralı şekilde getirildi";
+}
+
+?>
+<br>
+<br>
+<div class="infomassage">
+  <?php echo $querydesc; ?>
+</div>
+
+<br>
+<br>
+<br>
 
 <table id="customers">
   <tr>
@@ -223,12 +293,28 @@ while($kayit= $getir->fetch(PDO::FETCH_ASSOC) ){ ?>
 </tr>
 
   <?php 
+$query="SELECT * From calisan LEFT JOIN bolum ON calisan.BolumID =bolum.BolumID LEFT JOIN rol ON calisan.RolID =rol.RolID";
+
+
+if($_GET["filtre"]=="eski"){
+
+  $query="SELECT * From calisan  LEFT JOIN bolum ON calisan.BolumID =bolum.BolumID LEFT JOIN rol ON calisan.RolID =rol.RolID where calisan.Aktiflik=0";
+
+}
+else if($_GET["filtre"]=="eski-yeni"){
+
+  $query="SELECT * From calisan LEFT JOIN bolum ON calisan.BolumID =bolum.BolumID LEFT JOIN rol ON calisan.RolID =rol.RolID";
+
+}
+else if($_GET["filtre"]=="yeni-eski"){
+  $query="SELECT * From calisan LEFT JOIN bolum ON calisan.BolumID =bolum.BolumID LEFT JOIN rol ON calisan.RolID =rol.RolID ORDER BY calisan.CalisanID desc";
+}
 
 
 
-   $getir=$db->prepare("SELECT * From calisan 
-                      LEFT JOIN bolum ON calisan.BolumID =bolum.BolumID 
-                      LEFT JOIN rol ON calisan.RolID =rol.RolID");
+
+
+   $getir=$db->prepare($query);
    $getir->execute(array(
 ));
 
