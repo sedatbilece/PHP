@@ -44,3 +44,46 @@ echo "ana menü";
   <option value="Bolum.php?list=aktif">Aktif bölümleri getir</option>
   <option value="Bolum.php?list=pasif" >Pasif bölümleri getir</option>
 </select>
+
+------------------------------------------
+
+    $kaydet = $db->prepare("INSERT into calisan set  Ad=:ad , Soyad=:soyad ,Tel=:tel , Mail=: mail , BolumID=bolum , RolID=:rol");
+
+
+    $insert = $kaydet ->execute(array(# kayıt başarılı ise insert 1 değilse null değer alır
+  
+      "ad"=>$Ad,
+      "soyad"=>$Soyad,
+      "tel"=>$Tel,
+      "mail"=>$Mail,
+      "bolum"=>$BolumID,
+      "rol"=>$RolID
+      
+  ));
+
+
+
+if($insert!=null){
+    header("Location:../Calisan.php?ekleme1");
+    
+    }
+    else{
+      header("Location:../Calisan.php?ekleme0");
+    
+    }
+
+------------------------------------------
+    echo $Ad; echo "<br>";
+echo $Soyad; echo "<br>";
+echo $Tel; echo "<br>";
+echo $Mail; echo "<br>";
+echo $BolumID; echo "<br>";
+echo $RolID; echo "<br>";
+
+------------------------------------------
+
+------------------------------------------
+
+------------------------------------------
+
+------------------------------------------

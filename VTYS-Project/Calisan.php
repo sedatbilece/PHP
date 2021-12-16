@@ -5,7 +5,7 @@ include "./Functions/baglan.php";
 if(isset($_GET["ekleme1"])){
   ?>
 <script>
-  alert("Rol eklendi");
+  alert("Çalışan eklendi");
 </script>
 <?php
 } ?>
@@ -14,7 +14,7 @@ if(isset($_GET["ekleme1"])){
 <?php if(isset($_GET["ekleme0"])){
   ?>
 <script>
-  alert("Rol ekleme başarısız");
+  alert("Çalışan ekleme başarısız");
 </script>
 <?php
 } ?>
@@ -23,7 +23,7 @@ if(isset($_GET["ekleme1"])){
 <?php if(isset($_GET["silme1"])){
   ?>
 <script>
-  alert("Rol Silinndi");
+  alert("Çalışan Çıkarıldı");
 </script>
 <?php
 } ?>
@@ -132,43 +132,78 @@ body {
   a{
     color:orange;
   }
+  td{
+      margin-top: 40px;
+  }
+  table, th, td {
+  border: 1px solid black;
+}
+table {
+  width: 75%;
+  border-collapse: collapse;
+}
+  
 </style>
 </head>
 <body>
 
 <div class="sidenav right">
   <div class="nav "><div class="icon fa fa-home"></div><div class="description"><a href="./index.php">Anasayfa</a></div></div>
-  <div class="nav "><div class="icon fa fa-book"></div><div class="description"><a href="./Calisan.php">Çalışanlar</a></div></div>
+  <div class="nav active"><div class="icon fa fa-book"></div><div class="description"><a href="./Calisan.php">Çalışanlar</a></div></div>
   <div class="nav"><div class="icon fa fa-building"></div><div class="description"><a href="./Bolum.php">Bolumler</a></div></div>
   <div class="nav "><div class="icon fa fa-archive"></div><div class="description"><a href="./Projeler.php">Projeler</a></div></div>
   <div class="nav "><div class="icon fa fa-users"></div><div class="description"><a href="./Gruplar.php">Gruplar</a></div></div>
-  <div class="nav active "><div class="icon fa fa-book"></div><div class="description"><a href="./Roller.php">Roller</a></div></div>
+  <div class="nav  "><div class="icon fa fa-book"></div><div class="description"><a href="./Roller.php">Roller</a></div></div>
 </div>
 
 <div class="content">
 
-<form action="Functions/RolEkle.php" method="post">
+<form action="Functions/CalisanEkle.php" method="post">
+<h3>Çalışan Ekle</h3>
 
-<table>
+    
+  <input type="text" name="Ad" id="" placeholder="Ad">
+<br>
+<input type="text" name="Soyad" id="" placeholder="Soyad">
+<br>
+<input type="text" name="Mail" id="" placeholder="Mail">
+<br>
+<input type="text" name="Tel" id="" placeholder="Tel">
 
-<td>
-  <tr>
-    Rol adı :
-  </tr>
-  <tr> <input type="text" name="RolAdı" id=""></tr>
-</td>
+<br>
+<select name="BolumID" id="">
+    <option value="0">Bölüm seçiniz</option>
+<?php 
+$getir=$db->prepare("select * from bolum where Aktiflik=1");
+$getir->execute(array(
+));
+while($kayit= $getir->fetch(PDO::FETCH_ASSOC) ){ ?>
 
-<tr>
-    Level :
-  </tr>
-  <tr> <input type="text" name="RolLevel" id=""></tr>
-</td>
+<option value=<?php echo $kayit["BolumID"] ?> > <?php echo $kayit["BolumAdı"] ?> </option>
 
+<?php
+} ?>
+</select>
+<br>
+<select name="RolID" id="">
+    <option value="0">Rol seçiniz</option>
+<?php 
+$getir=$db->prepare("select * from rol");
+$getir->execute(array(
+));
+while($kayit= $getir->fetch(PDO::FETCH_ASSOC) ){ ?>
 
-<td>
+<option value=<?php echo $kayit["RolID"] ?> > <?php echo $kayit["RolAdı"] ?> </option>
+
+<?php
+} ?>
+</select>
+      
+ 
+<br>
    <button type="submit">Ekle</button>
-</td>
-</table>
+
+
 
 
 </form>
@@ -178,8 +213,12 @@ body {
 
 <table id="customers">
   <tr>
-  <td>Rol adı</td>
-  <td>Seviyesi</td>
+  <td>Çalışan Adı</td>
+  <td>Çalışan Soyadı</td>
+  <td>Mail</td>
+  <td>Tel</td>
+  <td>Bolumıd</td>
+  <td>Rolıd</td>
   <td>Sil</td>
 </tr>
 
@@ -187,16 +226,22 @@ body {
 
 
 
-   $getir=$db->prepare("select * from rol");
+   $getir=$db->prepare("SELECT * From calisan 
+                      LEFT JOIN bolum ON calisan.BolumID =bolum.BolumID 
+                      LEFT JOIN rol ON calisan.RolID =rol.RolID");
    $getir->execute(array(
 ));
 
-while($bolum= $getir->fetch(PDO::FETCH_ASSOC) ){ ?>
+while($kayit= $getir->fetch(PDO::FETCH_ASSOC) ){ ?>
 
 <tr>
-  <td><?php echo $bolum["RolAdı"] ?></td>
-  <td><?php echo $bolum["RolLevel"] ?></td>
-  <td><button type="submit"><a href="./Functions/RolSil.php?id=<?php echo $bolum["RolID"] ?>">Sil</a></button></td>
+  <td><?php echo $kayit["Ad"] ?></td>
+  <td><?php echo $kayit["Soyad"] ?></td>
+  <td><?php echo $kayit["Mail"] ?></td>
+  <td><?php echo $kayit["Tel"] ?></td>
+  <td><?php echo $kayit["BolumAdı"] ?></td>
+  <td><?php echo $kayit["RolAdı"] ?></td>
+  <td><button type="submit"><a href="./Functions/CalisanSil.php?id=<?php echo $kayit["CalisanID"] ?>">Sil</a></button></td>
 </tr>
 
 
