@@ -293,7 +293,7 @@ else if($_GET["filtre"]=="yeni-eski"){
 </tr>
 
   <?php 
-$query="SELECT * From calisan LEFT JOIN bolum ON calisan.BolumID =bolum.BolumID LEFT JOIN rol ON calisan.RolID =rol.RolID";
+$query="SELECT * From calisan LEFT JOIN bolum ON calisan.BolumID =bolum.BolumID LEFT JOIN rol ON calisan.RolID =rol.RolID ORDER BY calisan.CalisanID asc";
 
 
 if($_GET["filtre"]=="eski"){
@@ -303,7 +303,7 @@ if($_GET["filtre"]=="eski"){
 }
 else if($_GET["filtre"]=="eski-yeni"){
 
-  $query="SELECT * From calisan LEFT JOIN bolum ON calisan.BolumID =bolum.BolumID LEFT JOIN rol ON calisan.RolID =rol.RolID";
+  $query="SELECT * From calisan LEFT JOIN bolum ON calisan.BolumID =bolum.BolumID LEFT JOIN rol ON calisan.RolID =rol.RolID ORDER BY calisan.CalisanID asc";
 
 }
 else if($_GET["filtre"]=="yeni-eski"){

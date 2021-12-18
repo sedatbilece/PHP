@@ -1,3 +1,11 @@
+
+<?php 
+
+include "./Functions/baglan.php";
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -112,7 +120,7 @@ body {
   
 border : 1px solid black;
   padding: 100px;
-  font-size: 30px;
+  font-size: 20px;
   text-align: center;
 }
 
@@ -135,7 +143,14 @@ border : 1px solid black;
   
 
 <div class="grid-container">
-  <div class="grid-item">1</div>
+  <div class="grid-item">
+
+Şirketteki çalışan sayısı:
+<br>
+12213
+
+
+  </div>
   <div class="grid-item">2</div>
   <div class="grid-item">3</div>  
   <div class="grid-item">4</div>

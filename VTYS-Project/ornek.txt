@@ -81,6 +81,9 @@ echo $BolumID; echo "<br>";
 echo $RolID; echo "<br>";
 
 ------------------------------------------
+$query="select count(*) from calisan";
+$getir=$db->prepare($query);
+echo $getir;
 
 ------------------------------------------
 
