@@ -147,7 +147,17 @@ border : 1px solid black;
 
 Şirketteki çalışan sayısı:
 <br>
-12213
+<?php 
+
+$getir=$db->prepare("select COUNT(*) as sayi from calisan");
+$getir->execute(array(
+));
+$count =$getir->fetchColumn();
+
+echo $count;
+
+
+?>
 
 
   </div>
