@@ -134,7 +134,7 @@ border : 1px solid black;
   <div class="nav active"><div class="icon fa fa-home"></div><div class="description"><a href="./index.php">Anasayfa</a></div></div>
   <div class="nav "><div class="icon fa fa-book"></div><div class="description"><a href="./Calisan.php">Çalışanlar</a></div></div>
   <div class="nav"><div class="icon fa fa-building"></div><div class="description"><a href="./Bolum.php">Bolumler</a></div></div>
-  <div class="nav "><div class="icon fa fa-archive"></div><div class="description"><a href="./Projeler.php">Projeler</a></div></div>
+  <div class="nav "><div class="icon fa fa-archive"></div><div class="description"><a href="./Proje.php">Projeler</a></div></div>
   <div class="nav "><div class="icon fa fa-users"></div><div class="description"><a href="./Gruplar.php">Gruplar</a></div></div>
   <div class="nav "><div class="icon fa fa-book"></div><div class="description"><a href="./Roller.php">Roller</a></div></div>
 </div>
