@@ -141,7 +141,7 @@ body {
 <div class="content">
   
 <h3>Proje Ekle</h3>
-<form action="" type="post">
+<form action="Functions/ProjeEkle.php" type="POST">
 
 <input type="text" name="ProjeAdı" id="" placeholder="Proje Adı">
 <br>
