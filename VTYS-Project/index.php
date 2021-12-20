@@ -151,7 +151,7 @@ box-shadow: 0.5px 1px 3px 3px rgba(0,0,0,0.2);
 <br>
 <?php 
 
-$getir=$db->prepare("select COUNT(*) as sayi from calisan");
+$getir=$db->prepare("select COUNT(*) as sayi from calisan where Aktiflik=1");
 $getir->execute(array(
 ));
 $count =$getir->fetchColumn();

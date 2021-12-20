@@ -177,6 +177,21 @@ table {
   border-radius: 15px;
   background-color: #5BF983;
 }
+.buton{
+    background-color:#FF5722;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+
+  }
+  .buton:hover{
+    background-color:black;
+    color:white;
+    box-shadow: 0.5px 0.5px 1px 1px;
+  }
+  .bosluk{
+    margin-top: 10px;
+  }
 </style>
 </head>
 <body>
@@ -196,16 +211,16 @@ table {
 <h3>Çalışan Ekle</h3>
 
     
-  <input type="text" name="Ad" id="" placeholder="Ad">
+  <input type="text" name="Ad" id="" placeholder="Ad" class="bosluk" >
 <br>
-<input type="text" name="Soyad" id="" placeholder="Soyad">
+<input type="text" name="Soyad" id="" placeholder="Soyad" class="bosluk" >
 <br>
-<input type="text" name="Mail" id="" placeholder="Mail">
+<input type="text" name="Mail" id="" placeholder="Mail" class="bosluk" >
 <br>
-<input type="text" name="Tel" id="" placeholder="Tel">
+<input type="text" name="Tel" id="" placeholder="Tel" class="bosluk" >
 
 <br>
-<select name="BolumID" id="">
+<select name="BolumID" id="" class="bosluk" >
     <option value="0">Bölüm seçiniz</option>
 <?php 
 $getir=$db->prepare("select * from bolum where Aktiflik=1");
@@ -219,7 +234,7 @@ while($kayit= $getir->fetch(PDO::FETCH_ASSOC) ){ ?>
 } ?>
 </select>
 <br>
-<select name="RolID" id="">
+<select name="RolID" id="" class="bosluk" >
     <option value="0">Rol seçiniz</option>
 <?php 
 $getir=$db->prepare("select * from rol");
@@ -235,7 +250,7 @@ while($kayit= $getir->fetch(PDO::FETCH_ASSOC) ){ ?>
       
  
 <br>
-   <button type="submit">Ekle</button>
+   <button type="submit" class="buton bosluk">Ekle</button>
 
 
 

@@ -1,3 +1,13 @@
+<?php 
+include "./Functions/baglan.php";
+
+
+
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -100,6 +110,21 @@ body {
   a{
     color:orange;
   }
+  .bosluk{
+    margin-top: 20px;
+  }
+  .buton{
+    background-color:#FF5722;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+
+  }
+  .buton:hover{
+    background-color:black;
+    color:white;
+    box-shadow: 0.5px 0.5px 1px 1px;
+  }
 </style>
 </head>
 <body>
@@ -115,16 +140,58 @@ body {
 
 <div class="content">
   
+<h3>Proje Ekle</h3>
+<form action="" type="post">
 
+<input type="text" name="ProjeAdı" id="" placeholder="Proje Adı">
+<br>
+
+<select name="BolumID" id="" class="bosluk">
+    <option value="0">Bölüm seçiniz</option>
+<?php 
+$getir=$db->prepare("select * from bolum where Aktiflik=1");
+$getir->execute(array(
+));
+while($kayit= $getir->fetch(PDO::FETCH_ASSOC) ){ ?>
+
+<option value=<?php echo $kayit["BolumID"] ?> > <?php echo $kayit["BolumAdı"] ?> </option>
+
+<?php
+} ?>
+</select>
+<br>
+
+
+<select name="SorumluID" id="" class="bosluk">
+    <option value="0">Sorumlu Seçiniz</option>
+<?php 
+$getir=$db->prepare("select * from calisan where Aktiflik=1 AND RolID>2");
+$getir->execute(array(
+));
+while($kayit= $getir->fetch(PDO::FETCH_ASSOC) ){ ?>
+
+<option value=<?php echo $kayit["CalisanID"] ?> > <?php echo $kayit["Ad"];echo " ";echo $kayit["Soyad"] ?> </option>
+
+<?php
+} ?>
+</select>
+<br>
+
+<button type="submit" class="bosluk buton">Ekle</button>
+
+</form>
+<hr>
+<br>
 proje sayfası
+<br>
+proje adı text olacak<br>
 
-proje adı text olacak
-
-bolumid selectlist olacak
+bolumid selectlist olacak<br>
 
 sorumlu id selectlist olacak level 3 den getirecek 
-
+<br>
 aktif pasif bundada olacak
+<br>
 </div>
 
 

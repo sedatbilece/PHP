@@ -132,6 +132,18 @@ body {
   a{
     color:orange;
   }
+  .buton{
+    background-color:#FF5722;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+
+  }
+  .buton:hover{
+    background-color:black;
+    color:white;
+    box-shadow: 0.5px 0.5px 1px 1px;
+  }
 </style>
 </head>
 <body>
