@@ -125,6 +125,17 @@ body {
     color:white;
     box-shadow: 0.5px 0.5px 1px 1px;
   }
+  td{
+      margin-top: 40px;
+  }
+  table, th, td {
+    padding: 10px;
+  border: 1px solid black;
+}
+table {
+  width: 75%;
+  border-collapse: collapse;
+}
 </style>
 </head>
 <body>
@@ -181,17 +192,56 @@ while($kayit= $getir->fetch(PDO::FETCH_ASSOC) ){ ?>
 
 </form>
 <hr>
-<br>
-proje sayfası
-<br>
-proje adı text olacak<br>
 
-bolumid selectlist olacak<br>
 
-sorumlu id selectlist olacak level 3 den getirecek 
-<br>
-aktif pasif bundada olacak
-<br>
+<h3>Projeler Listesi</h3>
+<table id="customers">
+  <tr>
+  <td>Proje Adı</td>
+  <td>Bölüm Adı</td>
+  <td>Sorumlu Adı </td>
+  <td>Ayrıntılar</td>
+  <td>Arşive ekle</td>
+  
+</tr>
+
+  <?php 
+$query="SELECT * From proje  LEFT JOIN bolum ON proje.BölümID =bolum.BolumID 
+LEFT JOIN calisan ON proje.SorumluID =calisan.CalisanID where proje.Aktiflik=1 ORDER BY proje.ProjeID asc";
+
+
+
+   $getir=$db->prepare($query);
+   $getir->execute(array(
+));
+
+while($kayit= $getir->fetch(PDO::FETCH_ASSOC) ){ ?>
+
+<tr>
+  <td><?php echo $kayit["ProjeAdı"] ?></td>
+  <td><?php echo $kayit["BolumAdı"] ?></td>
+  <td><?php echo $kayit["Ad"];echo" ";echo $kayit["Soyad"]; ?></td>
+  
+ 
+  <td><button type="submit"><a href="./Functions/ProjeEk.php?id=<?php echo $kayit["ProjeID"] ?>">Ayrıntılar</a></button></td>
+  <td><button type="submit"><a href="./Functions/a.php?id=<?php echo $kayit["ProjeID"] ?>">Sil</a></button></td>
+</tr>
+
+
+
+ <?php
+} ?>
+
+
+  
+
+</table>
+
+
+
+
+
+
 </div>
 
 
