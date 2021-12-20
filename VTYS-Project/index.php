@@ -118,10 +118,12 @@ body {
 }
 .grid-item {
   
-border : 1px solid black;
-  padding: 100px;
+box-shadow: 0.5px 1px 3px 3px rgba(0,0,0,0.2);
+  padding: 80px;
+  margin: 10px;
   font-size: 20px;
   text-align: center;
+  border-radius: 20px;
 }
 
 
