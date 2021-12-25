@@ -224,7 +224,7 @@ while($kayit= $getir->fetch(PDO::FETCH_ASSOC) ){ ?>
   
  
   <td><button type="submit"><a href="./Functions/ProjeEk.php?id=<?php echo $kayit["ProjeID"] ?>">Ayrıntılar</a></button></td>
-  <td><button type="submit"><a href="./Functions/a.php?id=<?php echo $kayit["ProjeID"] ?>">Sil</a></button></td>
+  <td><button type="submit"><a href="./Functions/ProjeSil.php?id=<?php echo $kayit["ProjeID"] ?>">Sil</a></button></td>
 </tr>
 
 

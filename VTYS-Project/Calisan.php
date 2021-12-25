@@ -302,8 +302,8 @@ else if($_GET["filtre"]=="yeni-eski"){
   <td>Çalışan Soyadı</td>
   <td>Mail</td>
   <td>Tel</td>
-  <td>Bolumıd</td>
-  <td>Rolıd</td>
+  <td>Bolum Adı</td>
+  <td>Rolü</td>
   <td>Sil</td>
 </tr>
 
