@@ -133,6 +133,12 @@ table {
   width: 75%;
   border-collapse: collapse;
 }
+a:hover{
+  text-decoration: none;
+}
+a{
+  text-decoration: none;
+}
 </style>
 </head>
 <body>

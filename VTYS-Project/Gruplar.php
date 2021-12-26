@@ -14,7 +14,12 @@
 * {
   font-family: Roboto;
 }
-
+a:hover{
+  text-decoration: none;
+}
+a{
+  text-decoration: none;
+}
 body {
   margin: 0px;
   padding: 0px;

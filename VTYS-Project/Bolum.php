@@ -158,6 +158,12 @@ a:hover{
     color:white;
     box-shadow: 0.5px 0.5px 1px 1px;
   }
+  a:hover{
+  text-decoration: none;
+}
+a{
+  text-decoration: none;
+}
 </style>
 </head>
 <body>

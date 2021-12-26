@@ -192,6 +192,12 @@ table {
   .bosluk{
     margin-top: 10px;
   }
+  a:hover{
+  text-decoration: none;
+}
+a{
+  text-decoration: none;
+}
 </style>
 </head>
 <body>
