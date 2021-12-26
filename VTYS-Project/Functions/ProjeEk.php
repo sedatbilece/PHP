@@ -172,7 +172,7 @@ while($kayit= $getir->fetch(PDO::FETCH_ASSOC) ){ ?>
 <?php } ?>
 <hr>
 
-
+<h4> Projece Çalışanların Listesi</h4>
 
 
 <table id="customers">
@@ -181,9 +181,7 @@ while($kayit= $getir->fetch(PDO::FETCH_ASSOC) ){ ?>
   <td>Çalışan Soyadı</td>
   <td>Mail</td>
   <td>Tel</td>
-  
-  <td>Rolü</td>
-  <td>Sil</td>
+
 </tr>
 
   <?php 
@@ -204,8 +202,6 @@ while($kayit= $getir->fetch(PDO::FETCH_ASSOC) ){ ?>
   <td><?php echo $kayit["Mail"] ?></td>
   <td><?php echo $kayit["Tel"] ?></td>
   
-  <td><?php echo $kayit["RolAdı"] ?></td>
-  <td><button type="submit"><a href="./CalisanSil.php?id=<?php echo $kayit["CalisanID"] ?>">Sil</a></button></td>
 </tr>
 
 
