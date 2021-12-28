@@ -150,6 +150,7 @@ body {
 a{
   text-decoration: none;
 }
+
 </style>
 </head>
 <body>
@@ -164,7 +165,7 @@ a{
 </div>
 
 <div class="content">
-
+<h3>Rol Ekle</h3>
 <form action="Functions/RolEkle.php" method="post">
 
 <table>
@@ -192,7 +193,7 @@ a{
 </form>
 
 <hr>
-
+<h3>Roller Listesi</h3>
 
 <table id="customers">
   <tr>

@@ -169,17 +169,50 @@ echo $count;
 
 
   </div>
-  <div class="grid-item">2</div>
-  <div class="grid-item">3</div>  
-  <div class="grid-item">4</div>
-  <div class="grid-item">5</div>
-  <div class="grid-item">6</div>  
-  <div class="grid-item">7</div>
-  <div class="grid-item">8</div>
-  <div class="grid-item">9</div>  
+  <div class="grid-item">
+
+  Şirketteki  Aktif Proje sayısı:
+<br>
+<?php 
+
+$getir=$db->prepare("select COUNT(*) as sayi from proje where Aktiflik=1");
+$getir->execute(array(
+));
+$count =$getir->fetchColumn();
+
+echo $count;
+
+
+?>
+
+  </div>
+
+
+  <div class="grid-item">3
+
+
+  Şirketteki Bölüm sayısı:
+<br>
+<?php 
+
+$getir=$db->prepare("select COUNT(*) as sayi from bolum where Aktiflik=1");
+$getir->execute(array(
+));
+$count =$getir->fetchColumn();
+
+echo $count;
+
+
+?>
+
+
+  </div>  
+
 </div>
 
 
+<hr>
+ek alan
 </div>
 
 
