@@ -164,13 +164,40 @@ $getir=$db->prepare("select * from proje where ProjeID=:a");
    $getir->execute(array(
           "a"=>$projeid
 ));
-while($kayit= $getir->fetch(PDO::FETCH_ASSOC) ){ ?>
+while($kayit= $getir->fetch(PDO::FETCH_ASSOC) ){ 
+  
+  $pid=$kayit["ProjeID"] ; 
+  ?>
 
 
 
 <h3> Proje Adı : <?php echo $kayit["ProjeAdı"] ?></h3>
-<?php } ?>
+
+<?php     } ?>
 <hr>
+<h4>Projeye Çalışan ekle</h4>
+
+<form action="Functions/projecalisani.php" type="POST">
+
+<select name="SorumluID" id="" class="bosluk">
+    <option value="0">Çalışan Seçiniz</option>
+<?php 
+$getir=$db->prepare("select * from calisan where Aktiflik=1 AND RolID>2");
+$getir->execute(array(
+));
+while($kayit= $getir->fetch(PDO::FETCH_ASSOC) ){ ?>
+
+<option value=<?php echo $kayit["CalisanID"] ?> > <?php echo $kayit["Ad"];echo " ";echo $kayit["Soyad"] ?> </option>
+
+<?php
+} ?>
+</select>
+<br>
+
+<button type="submit" class="bosluk buton">Ekle</button>
+</form>
+
+
 
 <h4> Projece Çalışanların Listesi</h4>
 

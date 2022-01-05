@@ -188,10 +188,8 @@ echo $count;
   </div>
 
 
-  <div class="grid-item">3
-
-
-  Şirketteki Bölüm sayısı:
+  <div class="grid-item">
+Şirketteki Bölüm sayısı:
 <br>
 <?php 
 
