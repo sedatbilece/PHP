@@ -354,7 +354,7 @@ while($kayit= $getir->fetch(PDO::FETCH_ASSOC) ){ ?>
 
 
  <?php
-} ?>
+}//asddeneme ?>
 
 
   
