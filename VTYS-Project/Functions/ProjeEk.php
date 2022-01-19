@@ -216,7 +216,9 @@ while($kayit= $getir->fetch(PDO::FETCH_ASSOC) ){ ?>
 
 
 $getir=$db->prepare("SELECT * From calisan   where CalisanID IN
+
 (SELECT CalisanID from projecalisani where ProjeID=:a)");
+
    $getir->execute(array(
        "a"=>$projeid
 ));

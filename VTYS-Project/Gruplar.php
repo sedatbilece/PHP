@@ -121,13 +121,9 @@ body {
 <div class="content">
   
 
-gruplar sayfası
 
-grupid selectlist gruplar tablosundan gelcek
 
-calisan id ve proje id selectlist ile 
 
-bu direk silinebilir aktifliğe gerek  yok
 
 
 </div>

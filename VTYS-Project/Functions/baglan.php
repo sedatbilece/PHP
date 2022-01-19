@@ -1,6 +1,7 @@
 <?php 
 
 try{
+    // uzak sunucu bağlantısı için url kısmına host adresi ve port bilgisi girilmeli
     $url="mysql:host=localhost;dbname=vtysproje;charset=utf8";
     $name="root";
     $password="12345678";

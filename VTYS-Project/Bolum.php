@@ -163,7 +163,7 @@ a:hover{
 }
 a{
   text-decoration: none;
-}
+} 
 </style>
 </head>
 <body>
