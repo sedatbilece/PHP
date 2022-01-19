@@ -122,7 +122,23 @@ body {
   
 
 
+<?php 
 
+$getir=$db->prepare("  SELECT BolumID,
+CASE
+    WHEN BolumID = 8 THEN 'PAZARLAMA'
+	WHEN BolumID = 9 THEN 'SATIS'
+	WHEN BolumID = 12 THEN 'WEB YAZILIM '
+	WHEN BolumID = 13 THEN 'MOBIL YAZILIM'
+    
+    ELSE 'Bölüm bulunamadı'
+END AS BolumAdı
+FROM Bolum;");
+
+$getir->execute(array(
+));
+
+?>
 
 
 
