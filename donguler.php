@@ -28,6 +28,7 @@ for ($i=0;$i<10;$i++){  ?>
 
  <?php 
 # -------------------- WHILE  DONGUSU --------------------
+$say=0;
 while($say<10){
 
 echo "say : $say   <br>";
