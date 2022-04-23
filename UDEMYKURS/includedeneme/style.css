@@ -1,0 +1,18 @@
+.navbar{
+    background-color: red;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+*{
+    margin:0;
+}
+.con{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+    background-color: gray;
+}
