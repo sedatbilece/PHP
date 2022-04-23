@@ -9,14 +9,20 @@
 </head>
 <body>
     <?php 
-    include "./layout.php";
+    include_once "./layout.php";
     ?>
 
     <div class="con">
     <div>
         body değişen içerik
     </div>
-    
+
     </div>
+
+    <?php 
+    require "./layout.php";//include ile aynı farkı elzem şekilde lazım ise
+
+    require_once "./layout.php";// 1kere edilmiş ise daha etmez
+    ?>
 </body>
 </html>
