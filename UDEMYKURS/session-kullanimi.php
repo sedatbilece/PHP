@@ -1,6 +1,6 @@
 <?php 
 session_start();
-
+include "./baglan.php";
 
 $_SESSION["ad"]= "sedat";// oluşturma işlemi
 
