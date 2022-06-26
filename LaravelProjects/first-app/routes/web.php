@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\ProductController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -57,4 +57,6 @@ Route::prefix("basics")->group(function(){// /basics/yapi ≈üeklinde gruplamak i√
      
 
 });
+
+Route::get('/product/{id?}',[ProductController::class,'show'] );
 
