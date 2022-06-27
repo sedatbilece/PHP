@@ -13,12 +13,14 @@ use App\Http\Controllers\ProductController;
 |
 */
 
+Route::get('/', function () {
+    return view('welcome');
+});
+
 Route::prefix("basics")->group(function(){// /basics/yapi şeklinde gruplamak için kullanılır
 
 
-    Route::get('/', function () {
-        return view('welcome');
-    });
+   
     
     
     Route::get('/merhaba', function () {
