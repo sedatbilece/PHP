@@ -1,6 +1,6 @@
 <h1> product view </h1>
 
-
+<!--  Bu sayfa Product Controller içindeki show fonksiyonu tarafından döndürülmektedir  -->
 <hr>
 
 View içinde product id : {{ $id }} işlendi ;
