@@ -1,6 +1,7 @@
 <h1> product view </h1>
 
 <!--  Bu sayfa Product Controller içindeki show fonksiyonu tarafından döndürülmektedir  -->
+<!-- controllerda verilen view adının sonuna .blade eklenmedilir-->
 <hr>
 
 View içinde product id : {{ $id }} işlendi ;
