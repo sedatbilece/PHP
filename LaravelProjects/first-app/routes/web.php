@@ -58,5 +58,5 @@ Route::prefix("basics")->group(function(){// /basics/yapi şeklinde gruplamak i�
 
 });
 
-Route::get('/product/{id?}',[ProductController::class,'show'] );
+Route::get('/product/{id?}',[ProductController::class,'show'] );// controllera yönlendirme yaptık
 
