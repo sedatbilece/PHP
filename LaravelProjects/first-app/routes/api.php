@@ -1,8 +1,9 @@
 <?php
 
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\DB;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -22,4 +23,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get ("/hello",function (){
     return ["user"=>"hello from restfull api "];
+});
+
+Route::get ("/users",function (){
+    $users = DB::table('users')->get();
+    return $users;
+
+    
 });
