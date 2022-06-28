@@ -4,6 +4,9 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -31,3 +34,6 @@ Route::get ("/users",function (){
 
     
 });
+
+Route::apiResource('/products',ProductController::class);
+Route::apiResource('/users',UserController::class);
