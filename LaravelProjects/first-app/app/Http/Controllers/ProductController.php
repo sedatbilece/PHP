@@ -14,20 +14,34 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        // BASIC KULLANIMI
+        /*
         //http://127.0.0.1:8000/api/products (GET)
-        // $prd = DB::table('products')->get();
-
-
-        //http://127.0.0.1:8000/api/products?page=2 şeklinde diğer sayfa verilerini döner
-        $prd = DB::table('products')->paginate(3); //sayfa başına 3 kayıt döner
+         $prd = DB::table('products')->get();
+          */
         
 
-         // return $prd; //böyle kullanılabilir
-        
-         return response($prd , 200);
+            //SAYFALAMA İLE KULLANIMI
+            /* 
+             //http://127.0.0.1:8000/api/products?page=2 şeklinde diğer sayfa verilerini döner
+        $prd = DB::table('products')->paginate(3); //sayfa başına 3 kayıt döneR
+
+        return response($prd , 200);
+            */
+       
      
+        //QUERY SEARCH İLE KULLANIMI
+        $list=Product::query();
+
+        if($request->has('q')){
+                $list->where('name','like','%'.$request->query('q').'%');
+        }
+
+        $prd2=$list->get();
+        return response($prd2,400);
+
 
 
     }
