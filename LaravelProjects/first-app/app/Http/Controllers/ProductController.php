@@ -32,7 +32,7 @@ class ProductController extends Controller
             */
        
      
-        //QUERY SEARCH İLE KULLANIMI
+        //QUERY SEARCH İLE KULLANIMI query?q=name şeklinde
         $list=Product::query();
 
         if($request->has('q')){

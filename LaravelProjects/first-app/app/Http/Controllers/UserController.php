@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Exception;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -12,9 +14,17 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return "hello from users index";
+        
+        $list=User::query();
+
+        if($request->has('q')){
+                $list->where('name','like','%'.$request->query('q').'%');
+        }
+
+        $prd2=$list->get();
+        return response($prd2,400);
     }
 
     /**
@@ -25,7 +35,30 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();//post ile gelen veri alınıyor
+
+
+        try{
+            $snc = DB::table('users')->insert($input);//db ekleme işlemi
+
+        }catch(Exception $e){
+
+            return response([
+               
+                "message"=>"Missing Value",
+                "in"=>$input,
+                "ex"=>$e
+    ],400);
+        
+        }
+        
+        
+        if($snc==true){
+            return response([
+                "data"=>$input,
+                "message"=>"Added to database"
+    ],201);
+        }
     }
 
     /**
@@ -34,9 +67,16 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show($id)
     {
-        //
+        $prd=DB::table('users')->where('id',$id)->get();
+
+         if(sizeof($prd) ==0){
+            return response(["message"=>"Not Found"],404);
+         }
+         else{
+            return $prd;
+         }
     }
 
     /**
@@ -59,6 +99,8 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        $user->delete();
+
+        return response(["message"=>"category Deleted"],200);
     }
 }

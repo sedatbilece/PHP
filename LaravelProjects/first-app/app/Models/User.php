@@ -28,7 +28,8 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $hidden = [
+
+    protected $hidden = [// Tüm verileri çekerken dışarı açılmayacak veriler
         'password',
         'remember_token',
     ];
