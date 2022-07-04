@@ -37,3 +37,4 @@ Route::get ("/users",function (){
 
 Route::apiResource('/products',ProductController::class);
 Route::apiResource('/users',UserController::class);
+Route::apiResource('/categories',CategoryController::class);
