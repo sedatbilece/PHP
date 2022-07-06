@@ -86,9 +86,14 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, $id)
     {
-        //
+        $input = $request->all();
+        $snc=DB::table('users')->where('id',$id)->update($input);
+           return response([
+                    $snc ,
+                    $id
+           ],200);
     }
 
     /**

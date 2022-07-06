@@ -81,9 +81,14 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, $id)
     {
-        //
+        $input = $request->all();
+        $snc=DB::table('categories')->where('id',$id)->update($input);
+           return response([
+                    $snc ,
+                    $id
+           ],200);
     }
 
     /**

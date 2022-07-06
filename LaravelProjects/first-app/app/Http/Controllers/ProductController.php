@@ -109,15 +109,16 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)//çalışmıyor
+    public function update(Request $request, $id)//çalışmıyor
     {
        
-
-        return response([
-            
-            "req"=>$request,
-            "pro"=>$product
-        ]);
+        $input = $request->all();
+        $snc=DB::table('products')->where('id',$id)->update($input);
+           return response([
+                    $snc ,
+                    $id
+           ],200);
+       
 
 
        
