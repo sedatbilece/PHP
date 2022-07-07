@@ -144,4 +144,19 @@ class ProductController extends Controller
         ->orderBy('id','desc')->take(10)->get();
         // select kolonları seçer , orderby sıralama , take kaç tanesi alınacak , get çekme işlemi
     }
+    public function costum2(){
+
+        $prd = Product::orderBy('price')->get();
+
+        $mapped = $prd->map(function($prd){//map ile değerler üzerinde gezilen fonk 
+
+             return [
+                'id'=>$prd['id'],
+                'prd_name'=>$prd['name'],
+                'prd_price'=>$prd['price']*1.5
+             ];
+        });
+
+        return $mapped;
+    }
 }
