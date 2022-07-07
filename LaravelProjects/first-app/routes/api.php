@@ -1,6 +1,6 @@
 <?php
 
-
+use App\Http\Controllers\CategoryController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
@@ -34,6 +34,9 @@ Route::get ("/users",function (){
 
     
 });
+
+Route::get('/categories/costum1',[CategoryController::class,'costum1']);
+Route::get('/products/costum1',[ProductController::class,'costum1']);
 
 Route::apiResource('/products',ProductController::class);
 Route::apiResource('/users',UserController::class);

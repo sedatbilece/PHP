@@ -137,4 +137,11 @@ class ProductController extends Controller
 
         return response(["message"=>"Product Deleted"],200);
     }
+
+    public function costum1(){
+
+        return Product::selectRaw(' id as Product_ID , name as Product_Name , price as Product_Price ')
+        ->orderBy('id','desc')->take(10)->get();
+        // select kolonları seçer , orderby sıralama , take kaç tanesi alınacak , get çekme işlemi
+    }
 }

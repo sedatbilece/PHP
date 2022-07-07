@@ -103,4 +103,11 @@ class CategoryController extends Controller
 
         return response(["message"=>"category Deleted"],200);
     }
+
+
+    public function costum1(){//return costum category name list
+
+
+        return Category::pluck('id','name');
+    }
 }
