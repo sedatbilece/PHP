@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\UserResource;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Exception;
@@ -107,5 +108,16 @@ class UserController extends Controller
         $user->delete();
 
         return response(["message"=>"category Deleted"],200);
+    }
+
+
+    public function deneme(){// UserResource içinde tanımlanan verileri döndürür sadece
+        $user= User::find(1);
+        return new UserResource($user);
+
+
+        //birden çok veri var ise Aşağıdaki yapı kullanılır
+        //return  UserResource()::collection($userlar);
+
     }
 }
