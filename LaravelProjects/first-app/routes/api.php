@@ -41,7 +41,7 @@ Route::get('/categories/groups',[CategoryController::class,'groups']);
 Route::get('/products/costum1',[ProductController::class,'costum1']);
 Route::get('/products/costum2',[ProductController::class,'costum2']);
 
-
+Route::get('/users/deneme',[UserController::class,'deneme']);
 
 Route::apiResource('/products',ProductController::class);
 Route::apiResource('/users',UserController::class);

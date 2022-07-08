@@ -111,10 +111,8 @@ class CategoryController extends Controller
         return Category::pluck('id','name');
     }
 
-    public function groups(){
-
-      
-
+    public function groups(){ // kategorilere ait ürünleri saydırma işlemi
+        
         return DB::table('product_categories as pc')
         ->selectRaw('c.name , COUNT(*) as total')
         ->join('categories as c','c.id','=','pc.category_id')
