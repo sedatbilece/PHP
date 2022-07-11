@@ -24,16 +24,16 @@ class ProductController extends Controller
         
 
             //SAYFALAMA İLE KULLANIMI
-            /* 
+            
              //http://127.0.0.1:8000/api/products?page=2 şeklinde diğer sayfa verilerini döner
         $prd = DB::table('products')->paginate(3); //sayfa başına 3 kayıt döneR
 
         return response($prd , 200);
-            */
+            
        
      
         //QUERY SEARCH İLE KULLANIMI query?q=name şeklinde
-        $list=Product::query();
+        /* $list=Product::query();
 
         if($request->has('q')){
                 $list->where('name','like','%'.$request->query('q').'%');
@@ -41,6 +41,7 @@ class ProductController extends Controller
 
         $prd2=$list->get();
         return response($prd2,400);
+        */
 
 
 
