@@ -27,8 +27,11 @@ An api has been created that performs basic operations on Laravel using the proj
 <img src='./images/prd-costum-list.png' width='45%'/>
 </p>
 
-
+<br><br>
 ## My Notes (REST API Desing Rulebook)
+<hr>
+<p align='center'>
+<img src='./images/Notes/kapak.png' width='45%'/>
 
 
 <ul>
@@ -46,3 +49,6 @@ An api has been created that performs basic operations on Laravel using the proj
        </li>
        
 </ul>
+</p>
+
+

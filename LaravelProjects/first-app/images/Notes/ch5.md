@@ -1,9 +1,6 @@
 # REST API Desing Rulebook - CH5 - Representation Design
 
-Tarih: 10/07/2022
-Tip: KonuNotu
 
-![kapak.png](kapak.png)
 
 # Message Body Format
 

@@ -1,9 +1,6 @@
 # REST API Desing Rulebook - CH2 - Identifier Design with URLs
 
-Tarih: 01/07/2022
-Tip: KonuNotu
 
-![kapak.png](kapak.png)
 
 URL’ler genelden özele doğru kapsayıcı bir yapıda bulunmaktadır .
 

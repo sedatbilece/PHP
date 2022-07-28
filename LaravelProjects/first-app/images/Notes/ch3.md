@@ -1,9 +1,6 @@
 # REST API Desing Rulebook - CH3 - Interaction Design with HTTP
 
-Tarih: 02/07/2022
-Tip: KonuNotu
 
-![kapak.png](kapak.png)
 
 HTTP/1.1 3 temel öğe içerir :
 

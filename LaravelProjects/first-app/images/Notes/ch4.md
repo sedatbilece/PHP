@@ -1,9 +1,6 @@
 # REST API Desing Rulebook - CH4 - Metadata Design
 
-Tarih: 05/07/2022
-Tip: KonuNotu
 
-![kapak.png](kapak.png)
 
 # HTTP Headers
 
