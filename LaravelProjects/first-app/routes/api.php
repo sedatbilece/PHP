@@ -22,6 +22,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::get('/secured',function(Request $request){
+    return response($request->all(),200);
+})->middleware('auth:api');
+
 
 
 Route::get ("/hello",function (){

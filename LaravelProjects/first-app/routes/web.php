@@ -17,6 +17,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+Route::get('/secured',function(){
+        return "you are authenticated";
+});
+
 Route::prefix("basics")->group(function(){// /basics/yapi şeklinde gruplamak için kullanılır
 
 
